@@ -1,16 +1,18 @@
 {
-  "name": "template-nodejs-basic",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2"
-  }
+    "name": "template-nodejs-basic",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "node deploy-commands.js && nodemon index.js",
+        "start": "node deploy-commands.js && node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^14.9.0",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2"
+    }
 }
