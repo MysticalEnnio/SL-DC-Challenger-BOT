@@ -10,6 +10,8 @@ const {
     GatewayIntentBits,
     SlashCommandBuilder,
 } = require("discord.js");
+const { mongo } = require("./db/mongo.js");
+const mongodb = new mongo();
 const app = express();
 const port = process.env.PORT || 3000;
 
