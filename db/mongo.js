@@ -14,6 +14,7 @@ exports.mongo = class Mongo {
             },
         });
         currentClient = this.client;
+        console.log("MongoDB client created.");
     }
     async connect() {
         await this.client.connect();
@@ -26,6 +27,5 @@ exports.mongo = class Mongo {
 };
 
 exports.currentClient = function () {
-    console.log(currentClient);
     return currentClient;
 };

@@ -21,8 +21,12 @@ module.exports = {
                 joinedGuild: true,
                 rank: "F",
                 rankNum: 0,
+                power: 0,
                 exp: 0,
                 level: 1,
+                fights: 0,
+                wins: 0,
+                losses: 0,
             });
         } else {
             if (user.joinedGuild) {
@@ -32,12 +36,18 @@ module.exports = {
                     ephemeral: true,
                 });
             }
-            await db
-                .collection("data")
-                .updateOne(
-                    { id: interaction.user.id },
-                    { $set: { joinedGuild: true } }
-                );
+            await db.collection("data").updateOne(
+                { id: interaction.user.id },
+                {
+                    $set: {
+                        joinedGuild: true,
+                        rank: "F",
+                        rankNum: 0,
+                        exp: 0,
+                        level: 1,
+                    },
+                }
+            );
         }
         await currentClient.close();
         //send confirmation message
@@ -45,6 +55,5 @@ module.exports = {
             content: "You have joined the Adventure Guild!",
             ephemeral: true,
         });
-        console.log("Connected to MongoDB and pinged the database!");
     },
 };
