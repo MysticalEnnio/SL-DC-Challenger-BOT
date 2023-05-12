@@ -107,6 +107,13 @@ module.exports = {
                             client
                         );
                         break;
+                    case "DeclineTime":
+                        require("./buttons/fight/declineTime.js").execute(
+                            buttonData,
+                            interaction,
+                            client
+                        );
+                        break;
                     default:
                         console.log("Button command not found", buttonCommand);
                         break;
