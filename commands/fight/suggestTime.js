@@ -84,7 +84,7 @@ module.exports = {
         //check if date is in the future
         date = dayjs(date + " " + time, "MM/DD/YYYY HH:mm");
         console.log(date.format("MM/DD/YYYY HH:mm"));
-        if (date.isBefore(dayjs().utc(user.timeOffset))) {
+        if (date.isBefore(dayjs().add(user.timeOffset, "h"))) {
             return interaction.followUp({
                 content: "Date is in the past!",
                 ephemeral: true,
