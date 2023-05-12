@@ -133,6 +133,13 @@ module.exports = {
         );
         await require("../../../modules/fight/calc.js").calculateStats(loserId);
 
+        channel.send({
+            content: `The admin <@${interaction.user.id}> has confirmed that ${
+                winnerId == challenge.challengerId
+                    ? challenge.challengerName
+                    : challenge.challengedName
+            } is the winner of the duel!`,
+        });
         //send a message tagging the other user and saying that the user has confirmed the winner
         await interaction.followUp({
             content: `<@${interaction.user.id}> has confirmed that ${

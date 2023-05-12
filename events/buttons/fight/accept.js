@@ -120,9 +120,10 @@ module.exports = {
             case 1:
                 if (challengerTimezone) {
                     timezoneText = `${challenge.challengerName} has set their timezone to utc${challengerTimezone} \n${challenge.challengedName} must set their timezone with the command \`/timezone\``;
-                    return;
+                    console.log("timezoneText from case 1", timezoneText);
+                } else {
+                    timezoneText = `${challenge.challengedName} has set their timezone to utc${challengedTimezone} \n${challenge.challengerName} must set their timezone with the command \`/timezone\``;
                 }
-                timezoneText = `${challenge.challengedName} has set their timezone to utc${challengedTimezone} \n${challenge.challengerName} must set their timezone with the command \`/timezone\``;
                 break;
             case 2:
                 //calculate diffrence between timezones (challenger is ... hours (ahead/behind) of challenged)
