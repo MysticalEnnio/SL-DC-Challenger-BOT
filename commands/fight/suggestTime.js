@@ -62,15 +62,7 @@ module.exports = {
                 ephemeral: true,
             });
         }
-        //check if date is in the future
-        date = dayjs(date + " " + time, "MM/DD/YYYY HH:mm");
-        console.log(date.format("MM/DD/YYYY HH:mm"));
-        if (date.isBefore(dayjs())) {
-            return interaction.followUp({
-                content: "Date is in the past!",
-                ephemeral: true,
-            });
-        }
+
         let { currentClient } = require("../../db/mongo.js");
         currentClient = currentClient();
 
@@ -86,6 +78,15 @@ module.exports = {
             return interaction.followUp({
                 content:
                     "You haven't set your timezone yet! Please use /timezone to set your timezone",
+                ephemeral: true,
+            });
+        }
+        //check if date is in the future
+        date = dayjs(date + " " + time, "MM/DD/YYYY HH:mm");
+        console.log(date.format("MM/DD/YYYY HH:mm"));
+        if (date.isBefore(dayjs().utc(user.timeOffset))) {
+            return interaction.followUp({
+                content: "Date is in the past!",
                 ephemeral: true,
             });
         }
